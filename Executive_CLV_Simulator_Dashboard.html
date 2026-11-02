@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omni-Channel Customer Segmentation & CLV Intelligence | Amman Kumar Singh</title>
+  <style>
+    :root {
+      --primary: #1F4E79;
+      --secondary: #2E75B6;
+      --accent: #2CA02C;
+      --danger: #D9534F;
+      --bg: #F4F7FA;
+      --card: #FFFFFF;
+      --text: #222222;
+      --muted: #555555;
+    }
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(135deg, #1F4E79 0%, #0F2C47 100%);
+      color: white;
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h1 { margin: 0; font-size: 24px; letter-spacing: 0.3px; }
+    header p { margin: 6px 0 0; font-size: 14px; opacity: 0.9; }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1240px;
+      margin: 28px auto;
+      padding: 0 24px;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .kpi-card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--primary);
+    }
+    .kpi-card h4 { margin: 0; font-size: 13px; color: var(--muted); text-transform: uppercase; }
+    .kpi-card .val { font-size: 28px; font-weight: 700; color: var(--primary); margin: 8px 0 4px; }
+    .kpi-card .sub { font-size: 12.5px; color: var(--muted); }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 900px) { .grid-2 { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .card h3 { margin-top: 0; color: var(--primary); font-size: 18px; border-bottom: 2px solid #EEF2F6; padding-bottom: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 10px; }
+    th, td { padding: 11px 10px; text-align: left; border-bottom: 1px solid #EAEAEA; }
+    th { background-color: #F8FAFC; color: var(--primary); font-weight: 600; }
+    .sim-group { margin-bottom: 14px; }
+    .sim-group label { display: flex; justify-content: space-between; font-size: 13.5px; font-weight: 600; margin-bottom: 5px; }
+    .sim-group input[type=range] { width: 100%; accent-color: var(--primary); }
+    .sim-output {
+      background: #F0F6FC;
+      border-left: 4px solid var(--secondary);
+      padding: 16px;
+      border-radius: 6px;
+      margin-top: 18px;
+    }
+    .sim-output .row { display: flex; justify-content: space-between; margin: 6px 0; font-size: 14px; }
+    .sim-output .row strong { color: var(--primary); font-size: 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Omni-Channel Customer Segmentation & CLV Predictive Intelligence</h1>
+      <p>Author: Amman Kumar Singh | Python Machine Learning (K-Means, Gradient Boosting, Random Forest & XAI)</p>
+    </div>
+    <div class="badge">2,500 B2B Accounts Analyzed</div>
+  </header>
+
+  <div class="container">
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <h4>Total Portfolio ARR</h4>
+        <div class="val">$107.1M</div>
+        <div class="sub">Across APAC, EMEA & North America</div>
+      </div>
+      <div class="kpi-card">
+        <h4>Forecasted 12M CLV</h4>
+        <div class="val">$124.9M</div>
+        <div class="sub">Random Forest R² = 0.990 (RMSE: $4.9K)</div>
+      </div>
+      <div class="kpi-card">
+        <h4>Churn Model ROC-AUC</h4>
+        <div class="val">0.967</div>
+        <div class="sub">Gradient Boosting Accuracy = 94.7%</div>
+      </div>
+      <div class="kpi-card">
+        <h4>K-Means Silhouette</h4>
+        <div class="val">0.439</div>
+        <div class="sub">4 Distinct Behavioral RFM Cohorts</div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Unsupervised K-Means Behavioral Cohorts Summary</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Cohort Persona</th>
+              <th>Accounts</th>
+              <th>Avg ARR</th>
+              <th>Forecast 12M CLV</th>
+              <th>GenAI Adoption</th>
+              <th>Churn Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tier 1: Enterprise Champions</strong></td>
+              <td>619</td>
+              <td>$85,349</td>
+              <td>$133,890</td>
+              <td>84.1%</td>
+              <td style="color:#2CA02C;font-weight:700;">0.2%</td>
+            </tr>
+            <tr>
+              <td><strong>Tier 2: Core Mid-Market Adopters</strong></td>
+              <td>912</td>
+              <td>$35,613</td>
+              <td>$43,540</td>
+              <td>51.8%</td>
+              <td style="color:#2E75B6;font-weight:700;">9.6%</td>
+            </tr>
+            <tr>
+              <td><strong>Tier 3: High-Velocity Growth SMB</strong></td>
+              <td>436</td>
+              <td>$13,858</td>
+              <td>$19,785</td>
+              <td>68.3%</td>
+              <td style="color:#2CA02C;font-weight:700;">1.6%</td>
+            </tr>
+            <tr>
+              <td><strong>Tier 4: At-Risk Disengaged</strong></td>
+              <td>533</td>
+              <td>$27,729</td>
+              <td>$12,065</td>
+              <td>18.0%</td>
+              <td style="color:#D9534F;font-weight:700;">97.4%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Interactive Account CLV & Churn Risk Simulator</h3>
+        <div class="sim-group">
+          <label><span>Current Account ARR ($ USD)</span><span id="lbl-arr">$45,000</span></label>
+          <input type="range" id="in-arr" min="5000" max="150000" step="2500" value="45000" oninput="updateSim()">
+        </div>
+        <div class="sim-group">
+          <label><span>GenAI Copilot Adoption Rate (%)</span><span id="lbl-genai">65%</span></label>
+          <input type="range" id="in-genai" min="5" max="100" step="5" value="65" oninput="updateSim()">
+        </div>
+        <div class="sim-group">
+          <label><span>Seat License Utilization (%)</span><span id="lbl-seat">75%</span></label>
+          <input type="range" id="in-seat" min="10" max="100" step="5" value="75" oninput="updateSim()">
+        </div>
+        <div class="sim-group">
+          <label><span>Days Since Last Active Login (Recency)</span><span id="lbl-rec">8 Days</span></label>
+          <input type="range" id="in-rec" min="1" max="60" step="1" value="8" oninput="updateSim()">
+        </div>
+        <div class="sim-group">
+          <label><span>Quarterly Support Tickets Opened</span><span id="lbl-tkt">2 Tickets</span></label>
+          <input type="range" id="in-tkt" min="0" max="15" step="1" value="2" oninput="updateSim()">
+        </div>
+
+        <div class="sim-output">
+          <div class="row"><span>Predicted Churn Probability:</span><strong id="out-churn">4.2% (Low Risk)</strong></div>
+          <div class="row"><span>Forecasted 12-Month CLV:</span><strong id="out-clv">$60,412 (+34.2% NRR)</strong></div>
+          <div class="row"><span>Recommended Playbook:</span><strong id="out-action">Upsell Enterprise API Tier</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updateSim() {
+      const arr = parseFloat(document.getElementById('in-arr').value);
+      const genai = parseFloat(document.getElementById('in-genai').value) / 100.0;
+      const seat = parseFloat(document.getElementById('in-seat').value) / 100.0;
+      const rec = parseFloat(document.getElementById('in-rec').value);
+      const tkt = parseFloat(document.getElementById('in-tkt').value);
+
+      document.getElementById('lbl-arr').innerText = '$' + arr.toLocaleString();
+      document.getElementById('lbl-genai').innerText = Math.round(genai * 100) + '%';
+      document.getElementById('lbl-seat').innerText = Math.round(seat * 100) + '%';
+      document.getElementById('lbl-rec').innerText = rec + ' Days';
+      document.getElementById('lbl-tkt').innerText = tkt + ' Tickets';
+
+      const logit = 1.8 + 0.085 * rec - 1.8 + 0.38 * tkt - 2.6 * genai - 2.2 * seat - 1.6;
+      const prob = 1 / (1 + Math.exp(-logit));
+      const pct = (prob * 100).toFixed(1);
+
+      const mult = Math.max(0.20, Math.min(1.80, 0.75 + 0.45 * genai + 0.35 * seat + 0.12 - 0.008 * rec - 0.025 * tkt - 0.42 * prob));
+      const clv = Math.round(arr * mult);
+      const nrr = ((mult - 1) * 100).toFixed(1);
+
+      const churnEl = document.getElementById('out-churn');
+      const actionEl = document.getElementById('out-action');
+      if (prob > 0.50) {
+        churnEl.innerText = pct + '% (Critical Risk)';
+        churnEl.style.color = '#D9534F';
+        actionEl.innerText = 'Trigger Executive Sponsor & Onboarding Rescue';
+      } else if (prob > 0.20) {
+        churnEl.innerText = pct + '% (Moderate Risk)';
+        churnEl.style.color = '#E67E22';
+        actionEl.innerText = 'Launch Guided GenAI Copilot Workshop';
+      } else {
+        churnEl.innerText = pct + '% (Healthy / Low Risk)';
+        churnEl.style.color = '#2CA02C';
+        actionEl.innerText = 'Target for Multi-Year Expansion & Seat Upsell';
+      }
+
+      const sign = nrr >= 0 ? '+' : '';
+      document.getElementById('out-clv').innerText = '$' + clv.toLocaleString() + ' (' + sign + nrr + '% Expansion)';
+    }
+    updateSim();
+  </script>
+</body>
+</html>
